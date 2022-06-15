@@ -34,7 +34,7 @@ end
 local players = getplrsname()
 local plr = game[players].LocalPlayer
 coroutine.resume(coroutine.create(function()
-	while wait(0.01) do
+	while wait(0.1) do
 		coroutine.resume(coroutine.create(function()
 			for _,v in pairs(game[players]:GetPlayers()) do
 				if v.Name ~= plr.Name and v.Character then
@@ -46,13 +46,13 @@ coroutine.resume(coroutine.create(function()
 end))
 
 coroutine.resume(coroutine.create(function()
-	while wait(0.01) do
+	while wait(0.1) do
 		coroutine.resume(coroutine.create(function()
 		    for _,v in pairs(game[players]:GetPlayers()) do
 		    	if v.Character.Head.Mesh.MeshId == "" then
-				    v.Character.Head.Mesh.MeshType = "FileMesh"
-					v.Character.Head.Mesh.MeshId = "rbxassetid://5591363797"
-					v.Character.Head.Mesh.Scale = Vector3.new(1,1,1)
+		             v.Character.Head.Mesh.MeshType = "FileMesh"
+				v.Character.Head.Mesh.MeshId = "rbxassetid://5591363797"
+				v.Character.Head.Mesh.Scale = Vector3.new(1,1,1)
 		    	end
 		    	end
 		end))
