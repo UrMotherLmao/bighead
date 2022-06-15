@@ -1,0 +1,60 @@
+local on = true
+local plr = game:GetService('Players').LocalPlayer
+local cooldown = false
+game:GetService('RunService').Heartbeat:connect(function()
+	if on then
+		local hum = plr.Character.Humanoid
+		for _,v in ipairs(game.Players:GetPlayers()) do
+			if v.Name ~= plr.Name then
+				local s,e = pcall(function()
+					local root = v.Character.HumanoidRootPart
+					local sword = hum.Parent:FindFirstChildOfClass('Tool')
+					if sword and (root.Position - plr.Character.HumanoidRootPart.Position).Magnitude <= reach+1.5 then 
+						if cooldown == false then
+							cooldown = true
+							firetouchinterest(sword.Handle, root, 1)
+							firetouchinterest(sword.Handle, root, 0)
+							wait(0.01)
+							cooldown = false
+						end
+					end
+				end)
+			end
+		end
+	end
+end)
+
+function getplrsname()
+	for i,v in pairs(game:GetChildren()) do
+		if v.ClassName == "Players" then
+			return v.Name
+		end
+	end
+end
+local players = getplrsname()
+local plr = game[players].LocalPlayer
+coroutine.resume(coroutine.create(function()
+	while wait(0.01) do
+		coroutine.resume(coroutine.create(function()
+			for _,v in pairs(game[players]:GetPlayers()) do
+				if v.Name ~= plr.Name and v.Character then
+					v.Character.Head.Size = Vector3.new(reach,reach,reach)
+				end
+			end
+		end))
+	end
+end))
+
+coroutine.resume(coroutine.create(function()
+	while wait(0.01) do
+		coroutine.resume(coroutine.create(function()
+		    for _,v in pairs(game[players]:GetPlayers()) do
+		    	if v.Character.Head.Mesh.MeshId == "" then
+				    v.Character.Head.Mesh.MeshType = "FileMesh"
+					v.Character.Head.Mesh.MeshId = "rbxassetid://5591363797"
+					v.Character.Head.Mesh.Scale = Vector3.new(1,1,1)
+		    	end
+		    	end
+		end))
+	end
+end))
