@@ -38,7 +38,7 @@ coroutine.resume(coroutine.create(function()
 		coroutine.resume(coroutine.create(function()
 			for _,v in pairs(game[players]:GetPlayers()) do
 				if v.Name ~= plr.Name and v.Character then
-					v.Character.Head.Size = Vector3.new(reach,reach,reach)
+					v.Character.Head.Size = Vector3.new(1,1,reach)
 				end
 			end
 		end))
