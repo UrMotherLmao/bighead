@@ -9,7 +9,7 @@ game:GetService('RunService').Heartbeat:connect(function()
 				local s,e = pcall(function()
 					local root = v.Character.HumanoidRootPart
 					local sword = hum.Parent:FindFirstChildOfClass('Tool')
-					if sword and (root.Position - plr.Character.HumanoidRootPart.Position).Magnitude <= reach+0.5 then 
+					if sword and (root.Position - plr.Character.HumanoidRootPart.Position).Magnitude <= reach+1.5 then 
 						if cooldown == false then
 							cooldown = true
 							firetouchinterest(sword.Handle, root, 1)
