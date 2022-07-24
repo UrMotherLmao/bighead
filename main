@@ -58,3 +58,21 @@ coroutine.resume(coroutine.create(function()
 		end))
 	end
 end))
+
+local mouse = plr:GetMouse()
+mouse.KeyDown:connect(function(key)
+    if key == "j" then
+        reach = reach + 1
+        starterGui:SetCore("SendNotification", {Title = "REACH", Text = "Reach has increased by 1. Current: " .. reach..' studs'})
+    elseif key == "k" then
+        if reach > 1 then
+            reach = reach - 1
+            starterGui:SetCore("SendNotification", {Title = "REACH", Text = "Reach Strength has decreased by 1. Current: " .. reach..' studs'})
+        else
+            starterGui:SetCore("SendNotification", {Title = "REACH", Text = "Cannot decrease reach any further"})
+        if reach > 6 then
+            starterGui:SetCore("SendNotification", {Title = "REACH", Text = "Maximum reach is 6"})
+        end
+    end
+end
+end)
