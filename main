@@ -71,8 +71,6 @@ mouse.KeyDown:connect(function(key)
             starterGui:SetCore("SendNotification", {Title = "REACH", Text = "Reach Strength has decreased by 1. Current: " .. reach..' studs'})
         else
             starterGui:SetCore("SendNotification", {Title = "REACH", Text = "Cannot decrease reach any further"})
-        if reach > 6 then
-            starterGui:SetCore("SendNotification", {Title = "REACH", Text = "Maximum reach is 6"})
         end
     end
 end
