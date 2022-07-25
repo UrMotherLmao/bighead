@@ -59,6 +59,7 @@ coroutine.resume(coroutine.create(function()
 	end
 end))
 
+local starterGui = game:GetService("StarterGui")
 local mouse = plr:GetMouse()
 mouse.KeyDown:connect(function(key)
     if key == "j" then
