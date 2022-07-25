@@ -73,5 +73,4 @@ mouse.KeyDown:connect(function(key)
             starterGui:SetCore("SendNotification", {Title = "REACH", Text = "Cannot decrease reach any further"})
         end
     end
-end
 end)
